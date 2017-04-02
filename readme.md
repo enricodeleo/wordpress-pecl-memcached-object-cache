@@ -6,7 +6,7 @@ This project is a WordPress object cache backend that implements all available m
 
 ## Installation
 
-1. Install the Memcached daemon. Memcached should be available via your favorite package manager in your Linux distribution of choice. 
+1. Install the Memcached daemon. Memcached should be available via your favorite package manager in your Linux distribution of choice.
 
 	For Ubuntu and Debian:
 
@@ -27,14 +27,14 @@ yum install memcached
 service memcached restart
 	```
 
-1. Verify that Memcached is installed and running. 
+1. Verify that Memcached is installed and running.
 
 	1. From your server, `telnet` into the Memcached server
 
 		```bash
 telnet localhost 11211
 		```
-		
+
 		You should see output like:
 
 		```bash
@@ -51,7 +51,7 @@ VERSION 1.4.14 (Ubuntu)
 
 	1. Exit Telnet by typing `ctrl` + `]`, hitting `enter`, then typing `quit` and pressing `enter`.
 
-1. Install the Memcached PECL extension on your server. Note that there are two different PHP interfaces for Memcached; one is named PECL Memcache and the other, PECL Memcached. The "d" at the end of Memcached is extremely important in this case. You should be able to install PECL Memcached from your package manager for your Linux distro. 
+1. Install the Memcached PECL extension on your server. Note that there are two different PHP interfaces for Memcached; one is named PECL Memcache and the other, PECL Memcached. The "d" at the end of Memcached is extremely important in this case. You should be able to install PECL Memcached from your package manager for your Linux distro.
 
 	For Ubuntu and Debian:
 
@@ -98,6 +98,18 @@ php > echo $m->get( 'foo' ) . "\n";
 	    array(
 	        '127.0.0.1', // Memcached server IP address
 	        11211        // Memcached server port
+	    )
+	);
+	```
+
+	For a server listening to an unix socket (instead of TCP) use a file path and port 0:
+
+	```php
+	global $memcached_servers;
+	$memcached_servers = array(
+	    array(
+	        '/tmp/memcacked.sock',
+	        0
 	    )
 	);
 	```

@@ -15,20 +15,20 @@ There are two major advantages to installing the WordPress PECL Memcached Object
 1. Install the PECL Memcached Object Cache plugin from WordPress.org:
 
 	```
-	wp plugin install pecl-memcached --activate
+	wp plugin install wordpress-pecl-memcached-object-cache --activate
 	```
-	
+
 1. After installing the plugin, complete the installation by symlinking `object-cache.php` into the `wP_CONTENT_DIR` location:
 
 	```
 	wp mem install
 	```
-	
+
 To check the rest of your configuration, run `wp mem check`. If you see checkmarks for all items, your environment is ready to use this cache. If you see an `x` for any items, you will need to resolve the item for the library to function properly.
 
 ### Manual
 
-1. Install the Memcached daemon. Memcached should be available via your favorite package manager in your Linux distribution of choice. 
+1. Install the Memcached daemon. Memcached should be available via your favorite package manager in your Linux distribution of choice.
 
 	For Ubuntu and Debian:
 
@@ -49,14 +49,14 @@ yum install memcached
 service memcached restart
 	```
 
-1. Verify that Memcached is installed and running. 
+1. Verify that Memcached is installed and running.
 
 	1. From your server, `telnet` into the Memcached server
 
 		```bash
 telnet localhost 11211
 		```
-		
+
 		You should see output like:
 
 		```bash
@@ -73,7 +73,7 @@ VERSION 1.4.14 (Ubuntu)
 
 	1. Exit Telnet by typing `ctrl` + `]`, hitting `enter`, then typing `quit` and pressing `enter`.
 
-1. Install the Memcached PECL extension on your server. Note that there are two different PHP interfaces for Memcached; one is named PECL Memcache and the other, PECL Memcached. The "d" at the end of Memcached is extremely important in this case. You should be able to install PECL Memcached from your package manager for your Linux distro. 
+1. Install the Memcached PECL extension on your server. Note that there are two different PHP interfaces for Memcached; one is named PECL Memcache and the other, PECL Memcached. The "d" at the end of Memcached is extremely important in this case. You should be able to install PECL Memcached from your package manager for your Linux distro.
 
 	For Ubuntu and Debian:
 
